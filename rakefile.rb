@@ -947,7 +947,7 @@ file electron_build_output => FileList["#{ELECTRON_DIR}/src/**/*.*",
       sh 'npm run build-linux'
     else # windows
       electron_builder_exe = File.join('node_modules', '.bin', 'electron-builder')
-      sh "export CSC_IDENTITY_AUTO_DISCOVERY ; #{electron_builder_exe} --win"
+      sh "export CSC_IDENTITY_AUTO_DISCOVERY=false ; #{electron_builder_exe} --win"
     end
   end
 end
