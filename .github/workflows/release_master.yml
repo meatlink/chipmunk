@@ -12,7 +12,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-2016, macOS-latest]
+        # os: [ubuntu-latest, windows-2016, macOS-latest]
+        os: [windows-2016]
         rust: [stable]
     steps:
       - name: Checkout
