@@ -69,13 +69,14 @@ jobs:
       - name: build release
         run: rake full_pipeline --trace
         env:
-          KEYCHAIN_NAME: "build.keychain"
-          CSC_LINK: ${{ secrets.CSC_LINK }}
-          CSC_KEY_PASSWORD: ${{ secrets.CSC_KEY_PASSWORD }}
-          APPLEID: ${{ secrets.APPLEID }}
-          APPLEIDPASS: ${{ secrets.APPLEIDPASS }}
-          SIGNING_ID: ${{ secrets.SIGNING_ID }}
-          KEYCHAIN_PWD: ${{ secrets.KEYCHAIN_PWD }}
+          CSC_IDENTITY_AUTO_DISCOVERY: false
+          # KEYCHAIN_NAME: "build.keychain"
+          # CSC_LINK: ${{ secrets.CSC_LINK }}
+          # CSC_KEY_PASSWORD: ${{ secrets.CSC_KEY_PASSWORD }}
+          # APPLEID: ${{ secrets.APPLEID }}
+          # APPLEIDPASS: ${{ secrets.APPLEIDPASS }}
+          # SIGNING_ID: ${{ secrets.SIGNING_ID }}
+          # KEYCHAIN_PWD: ${{ secrets.KEYCHAIN_PWD }}
       - run: ls
       - name: Release
         uses: softprops/action-gh-release@v1
@@ -87,4 +88,3 @@ jobs:
           draft: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CSC_IDENTITY_AUTO_DISCOVERY: false
