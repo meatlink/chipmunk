@@ -3,7 +3,7 @@ name: BuildAndReleaseMaster
 on:
   push:
     branches:
-      - master         # Push events on master branch
+      - ziptgz         # Push events on master branch
     tags:
       - '*'
 
@@ -80,7 +80,9 @@ jobs:
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: "*.tgz"
+          files:
+            - "*.tgz"
+            - "*.zip"
           draft: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
