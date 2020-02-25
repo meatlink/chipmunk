@@ -990,11 +990,7 @@ task :prepare_to_deploy do
     else
       release_name += ".zip"
       cd "#{target_platform_alias}-unpacked" do
-        sh "powershell -command \"Compress-Archive * ..\\test.zip\""
-        # sh "Compress-Archive * ..\#{release_name}"
-        # sh "Compress-Archive * ..\#{release_name}"
-        # sh "zip -r \"..\\test.zip\" *"
-        # sh "zip -r \"../#{release_name}\" ./*"
+        sh "powershell -command \"Compress-Archive * ..\\#{release_name}\""
       end
     end
   end
