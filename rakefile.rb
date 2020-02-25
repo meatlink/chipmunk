@@ -991,7 +991,8 @@ task :prepare_to_deploy do
       release_name += ".zip"
       cd "#{target_platform_alias}-unpacked" do
         sh "ls"
-        sh "zip -r \"../#{release_name}\" ./*"
+        sh "zip -r \"../test.zip\" ./*"
+        # sh "zip -r \"../#{release_name}\" ./*"
       end
     end
   end
